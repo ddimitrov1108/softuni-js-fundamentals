@@ -1,17 +1,15 @@
-function train([wags, capacity, ...commands]) {
+function train([wags, capacity, ...cmds]) {
   const wagons = wags.split(" ").map(Number);
   capacity = +capacity;
 
-  for (let command of commands) {
-    if (command.startsWith("Add")) wagons.push(Number(command.split(" ")[1]));
+  for (const cmd of cmds) {
+    if (cmd.startsWith("Add")) wagons.push(Number(cmd.split(" ")[1]));
     else {
-      const passengers = Number(command);
-      const index = wagons.findIndex(w => w + passengers <= capacity);
+      const passengers = Number(cmd);
+      const index = wagons.findIndex((w) => w + passengers <= capacity);
 
-      if(index != -1)
-        wagons[index] += passengers;
-      else
-      wagons.push(passengers);
+      if (index != -1) wagons[index] += passengers;
+      else wagons.push(passengers);
     }
   }
 

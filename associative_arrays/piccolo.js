@@ -1,10 +1,10 @@
-function piccolo(arr) {
+function piccolo(cmds) {
   const parkingLot = new Set();
 
-  for (const operation of arr) {
-    const [direction, carNumber] = operation.split(", ");
+  for (const cmd of cmds) {
+    const [op, carNumber] = cmd.split(", ");
 
-    if (direction === "IN") parkingLot.add(carNumber);
+    if (op === "IN") parkingLot.add(carNumber);
     else parkingLot.delete(carNumber);
   }
 

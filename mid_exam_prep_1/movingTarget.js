@@ -1,25 +1,23 @@
-function movingTarget([targetsStr, ...commands]) {
+function movingTarget([targetsStr, ...cmds]) {
   const targets = targetsStr.split(" ").map(Number);
 
-  for (const command of commands) {
-    if (command === "End") break;
+  for (const cmd of cmds) {
+    if (cmd === "End") break;
 
-    let [operation, index, value] = command.split(" ");
+    let [op, index, value] = cmd.split(" ");
     index = +index;
     value = +value;
 
     const isValidTarget = index >= 0 && index < targets.length;
 
-    if (operation === "Shoot" && isValidTarget) {
+    if (op === "Shoot" && isValidTarget) {
       targets[index] -= value;
 
       if (targets[index] <= 0) targets.splice(index, 1);
-    } 
-    else if (operation === "Add") {
+    } else if (op === "Add") {
       if (isValidTarget) targets.splice(index, 0, value);
       else console.log("Invalid placement!");
-    } 
-    else if (operation === "Strike") {
+    } else if (op === "Strike") {
       const start = index - value;
       const end = index + value;
 

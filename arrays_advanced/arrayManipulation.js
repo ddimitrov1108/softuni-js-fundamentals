@@ -1,11 +1,11 @@
-function arrayManipulator(arr, commands) {
-  for (let command of commands) {
-    let [operation, ...args] = command.split(" ");
+function arrayManipulator(arr, cmds) {
+  for (const cmd of cmds) {
+    let [op, ...args] = cmd.split(" ");
     args = args.map(Number);
 
-    if (operation === "print") break;
+    if (op === "print") break;
 
-    switch (operation) {
+    switch (op) {
       case "add":
         arr.splice(args[0], 0, args[1]);
         break;

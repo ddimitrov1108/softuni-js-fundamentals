@@ -1,4 +1,4 @@
-function ladyBug([fieldSize, initIndexes, ...commands]) {
+function ladyBug([fieldSize, initIndexes, ...cmds]) {
   const indexes = initIndexes.split(" ").map(Number);
   const field = Array(fieldSize).fill(0);
 
@@ -6,8 +6,8 @@ function ladyBug([fieldSize, initIndexes, ...commands]) {
     if (i <= field.length - 1) field[i] = 1;
   });
 
-  for (let i = 0; i < commands.length; i++) {
-    let [position, direction, flyDuration] = commands[i].split(" ");
+  for (let i = 0; i < cmds.length; i++) {
+    let [position, direction, flyDuration] = cmds[i].split(" ");
     let nextPosition = 0;
 
     position = Number(position);

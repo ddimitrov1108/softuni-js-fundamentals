@@ -1,12 +1,11 @@
 function sortArray(arr) {
-  const sortedArr = arr.slice().sort((a, b) => a - b);
+  const sorted = arr.slice().sort((a, b) => a - b);
   const result = [];
 
-  while (sortedArr.length > 0) {
-    result.push(sortedArr.pop());
+  while (sorted.length > 0) {
+    result.push(sorted.pop());
 
-    if (sortedArr.length > 0)
-      result.push(sortedArr.shift());
+    if (sorted.length > 0) result.push(sorted.shift());
   }
 
   console.log(result.join(" "));

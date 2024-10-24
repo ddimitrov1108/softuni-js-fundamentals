@@ -1,10 +1,10 @@
-function worldTour([route, ...operations]) {
-  for (const operation of operations) {
-    let [action, ...args] = operation.split(":");
+function worldTour([route, ...cmds]) {
+  for (const cmd of cmds) {
+    if (cmd === "Travel") break;
 
-    if (action === "Travel") break;
+    let [op, ...args] = cmd.split(":");
 
-    switch (action) {
+    switch (op) {
       case "Add Stop":
         const index = +args[0];
         const stop = args[1];

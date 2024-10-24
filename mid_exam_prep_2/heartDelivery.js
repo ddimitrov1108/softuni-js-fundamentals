@@ -1,14 +1,14 @@
-function heartDelivery([arrStr, ...commands]) {
+function heartDelivery([arrStr, ...cmds]) {
   const arr = arrStr.split("@").map(Number);
   const totalHouses = arr.length;
 
   let position = 0;
   let celebratedHouses = 0;
 
-  for (const command of commands) {
-    if (command === "Love!") break;
+  for (const cmd of cmds) {
+    if (cmd === "Love!") break;
 
-    position += +command.split(" ")[1];
+    position += +cmd.split(" ")[1];
 
     if (position < 0 || position >= totalHouses) position = 0;
 

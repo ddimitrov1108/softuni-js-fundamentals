@@ -8,9 +8,9 @@ function thePianist([n, ...arr]) {
   }
 
   for (let i = pieces; i < arr.length; i++) {
-    let [command, ...args] = arr[i].split("|");
+    let [cmd, ...args] = arr[i].split("|");
 
-    switch (command) {
+    switch (cmd) {
       case "Add":
         let [piece, composer, key] = args;
         if (collection[piece]) {

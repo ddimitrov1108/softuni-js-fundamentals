@@ -1,17 +1,15 @@
-function arrayModifier([arrStr, ...commands]) {
+function arrayModifier([arrStr, ...cmds]) {
   let arr = arrStr.split(" ").map(Number);
 
-  for (const command of commands) {
-    const [operation, index1, index2] = command.split(" ");
+  for (const cmd of cmds) {
+    if (cmd === "end") break;
 
-    if (operation === "end") break;
-    if (operation === "multiply") arr[index1] *= arr[index2];
-    else if (operation === "decrease") arr = arr.map((n) => n - 1);
-    else if (operation === "swap") {
-      const temp = arr[index1];
-      arr[index1] = arr[index2];
-      arr[index2] = temp;
-    }
+    const [op, index1, index2] = cmd.split(" ");
+
+    if (op === "multiply") arr[index1] *= arr[index2];
+    else if (op === "decrease") arr = arr.map((n) => n - 1);
+    else if (op === "swap")
+      [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
   }
 
   console.log(arr.join(", "));

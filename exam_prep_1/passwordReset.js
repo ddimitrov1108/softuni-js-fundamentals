@@ -1,14 +1,14 @@
-function passwordReset([password, ...operations]) {
-  for (const operation of operations) {
-    if (operation === "Done") break;
+function passwordReset([password, ...cmds]) {
+  for (const cmd of cmds) {
+    if (cmd === "Done") break;
 
-    if (operation === "TakeOdd") {
+    if (cmd === "TakeOdd") {
       password = password
         .split("")
         .filter((_, i) => i % 2)
         .join("");
     } else {
-      let [op, ...args] = operation.split(" ");
+      let [op, ...args] = cmd.split(" ");
 
       if (op === "Cut") {
         let tempPwd = password.split("");
