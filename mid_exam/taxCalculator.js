@@ -1,8 +1,8 @@
 function taxCalculator(arr) {
   const taxes = {
-    family: { baseTax: 50, discount: 5, km: { per: 3000, rate: 12 } },
-    heavyDuty: { baseTax: 80, discount: 8, km: { per: 9000, rate: 14 } },
-    sports: { baseTax: 100, discount: 9, km: { per: 2000, rate: 18 } },
+    family: { base: 50, discount: 5, km: { per: 3000, rate: 12 } },
+    heavyDuty: { base: 80, discount: 8, km: { per: 9000, rate: 14 } },
+    sports: { base: 100, discount: 9, km: { per: 2000, rate: 18 } },
   };
 
   const vehiclesInfo = arr.shift().split(">>");
@@ -17,7 +17,7 @@ function taxCalculator(arr) {
     }
 
     const total =
-      taxes[type].baseTax -
+      taxes[type].base -
       taxes[type].discount * +years +
       Math.floor(+kmTraveled / taxes[type].km.per) * taxes[type].km.rate;
 

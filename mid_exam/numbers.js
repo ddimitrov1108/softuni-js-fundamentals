@@ -1,13 +1,13 @@
-function numbers([numbersArr, ...commands]) {
-  let numbers = numbersArr.split(" ").map(Number);
+function numbers([numbersStr, ...cmds]) {
+  let numbers = numbersStr.split(" ").map(Number);
 
-  for (const command of commands) {
-    if (command === "Finish") break;
+  for (const cmd of cmds) {
+    if (cmd === "Finish") break;
 
-    let [operation, ...args] = command.split(" ");
+    let [op, ...args] = cmd.split(" ");
     args = args.map(Number);
 
-    switch (operation) {
+    switch (op) {
       case "Add":
         numbers.push(...args);
         break;
