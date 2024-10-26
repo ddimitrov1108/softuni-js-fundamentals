@@ -15,12 +15,12 @@ function springVacation(arr) {
 
   let currentCost = foodCost + roomCost;
 
-  for (let i = 0; i < days; i++) {
-    currentCost += +arr[i] * fuelPricePerKm;
+  for (let i = 1; i <= days; i++) {
+    currentCost += +arr[i - 1] * fuelPricePerKm;
 
-    if ((i + 1) % 3 === 0 || (i + 1) % 5 === 0)
+    if (i % 3 === 0 || i % 5 === 0)
       currentCost += currentCost * 0.4;
-    else if ((i + 1) % 7 === 0) currentCost -= currentCost / people;
+    else if (i % 7 === 0) currentCost -= currentCost / people;
 
     if (currentCost > budget) {
       console.log(
