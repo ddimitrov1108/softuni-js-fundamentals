@@ -1,8 +1,7 @@
 function furniture(arr) {
-  const regex = new RegExp(
-    ">>(?<furniture>[\\w]+)<<(?<price>[\\d]+[.]?[\\d]+)!(?<quantity>[\\d]+)"
-  );
-  let bought = [];
+  const regex = new RegExp(">>([\\w]+)<<([\\d]+[.]?[\\d]+)!([\\d]+)");
+
+  const bought = [];
   let total = 0;
 
   for (let i = 0; i < arr.length; i++) {
@@ -12,7 +11,7 @@ function furniture(arr) {
 
     if (match) {
       bought.push(match[1]);
-      total += parseFloat(match[2]) * parseInt(match[3]);
+      total += +match[2] * +match[3];
     }
   }
 
