@@ -1,21 +1,13 @@
-function call(employees) {
-  class Employee {
-    constructor(name) {
-      this.name = name;
-      this.personalNumber = name.length;
-    }
-  
-    print() {
-      console.log(
-        `Name: ${this.name} -- Personal Number: ${this.personalNumber}`
-      );
-    }
-  }
+function employees(arr) {
+  for (const data of arr) {
+    const { name, personalNumber } = {
+      name: data,
+      personalNumber: data.length,
+    };
 
-  const objs = employees.map((name) => new Employee(name));
-  
-  objs.forEach(o => o.print());
+    console.log(`Name: ${name} -- Personal Number: ${personalNumber}`);
+  }
 }
 
-call(["Silas Butler", "Adnaan Buckley", "Juan Peterson", "Brendan Villarreal"]);
-call(["Samuel Jackson", "Will Smith", "Bruce Willis", "Tom Holland"]);
+employees(["Silas Butler", "Adnaan Buckley", "Juan Peterson", "Brendan Villarreal"]);
+employees(["Samuel Jackson", "Will Smith", "Bruce Willis", "Tom Holland"]);
